@@ -15,8 +15,15 @@ namespace SinglyLinkedLists
         private SinglyLinkedListNode next;
         public SinglyLinkedListNode Next
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return this.next; }
+            set {
+                /* 'value' keyword refers to anything on the right side of the operator */
+                if (value == this)
+                {
+                    throw new ArgumentException();
+                }
+                this.next = value;
+            }
         }
         private string value; /* Access using "this.vlaue" */
         public string Value 
@@ -38,7 +45,6 @@ namespace SinglyLinkedLists
 
         public SinglyLinkedListNode(string value)
         {
-            throw new NotImplementedException();
             this.value = value;
 
             // Used by the visualizer:
@@ -54,6 +60,11 @@ namespace SinglyLinkedLists
         public bool IsLast()
         {
             throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            return this.value;
         }
     }
 }
