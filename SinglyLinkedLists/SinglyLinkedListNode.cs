@@ -59,7 +59,7 @@ namespace SinglyLinkedLists
 
         public bool IsLast()
         {
-            throw new NotImplementedException();
+            return this.next == null;
         }
 
         public override string ToString()
