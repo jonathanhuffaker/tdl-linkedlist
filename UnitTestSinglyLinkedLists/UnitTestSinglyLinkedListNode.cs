@@ -63,6 +63,9 @@ namespace UnitTestSinglyLinkedLists
         {
             SinglyLinkedListNode node1 = new SinglyLinkedListNode("foo");
             SinglyLinkedListNode node2 = new SinglyLinkedListNode("foo");
+
+
+
             Assert.AreEqual(node1, node2);
         }
 
