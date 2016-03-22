@@ -63,9 +63,14 @@ namespace SinglyLinkedLists
         }
         public override bool Equals(object obj)
         {
-            var node = obj as SinglyLinkedListNode;
+            if (obj is SinglyLinkedListNode)
+            {
 
-            return this.value == node.value;
+                var node = obj as SinglyLinkedListNode;
+
+                return this.value == node.value;
+            }
+            else { return false; }
         }
 
         public override string ToString()
