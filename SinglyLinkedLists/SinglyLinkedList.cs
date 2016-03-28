@@ -7,6 +7,8 @@ namespace SinglyLinkedLists
 {
     public class SinglyLinkedList
     {
+        SinglyLinkedListNode firstLocation { get; set;}
+        SinglyLinkedList list { get; set; }
         public SinglyLinkedList()
         {
             // NOTE: This constructor isn't necessary, once you've implemented the constructor below.
@@ -32,12 +34,35 @@ namespace SinglyLinkedLists
 
         public void AddFirst(string value)
         {
+            
             throw new NotImplementedException();
         }
 
         public void AddLast(string value)
         {
-            throw new NotImplementedException();
+            SinglyLinkedListNode firstOne = new SinglyLinkedListNode(value);
+
+            if (firstLocation == null)
+            {
+                firstLocation = firstOne;
+            }
+            else
+            {
+                SinglyLinkedListNode newnode = firstLocation;
+                while (!newnode.IsLast())
+                {
+                    newnode = newnode.Next;
+
+                }
+                firstOne.Next = newnode;
+            }
+
+
+
+
+
+            //while (!firstOne.IsLast())
+            //  throw new NotImplementedException();
         }
 
         // NOTE: There is more than one way to accomplish this.  One is O(n).  The other is O(1).
@@ -48,12 +73,26 @@ namespace SinglyLinkedLists
 
         public string ElementAt(int index)
         {
-            throw new NotImplementedException();
+            SinglyLinkedListNode location = firstLocation;
+            if (location == null)
+            {
+                throw new ArgumentOutOfRangeException("No nodes");
+            }
+                else
+            {
+                location =
+
+            }
+
+           // return ElementAt(0);
+           // throw new NotImplementedException();
         }
 
         public string First()
         {
-            throw new NotImplementedException();
+            return firstLocation?.ToString();
+            //SinglyLinkedListNode myFirstNode = new SinglyLinkedListNode(value);
+           // throw new NotImplementedException();
         }
 
         public int IndexOf(string value)
