@@ -57,11 +57,6 @@ namespace SinglyLinkedLists
                 firstOne.Next = newnode;
             }
 
-
-
-
-
-            //while (!firstOne.IsLast())
             //  throw new NotImplementedException();
         }
 
@@ -74,18 +69,17 @@ namespace SinglyLinkedLists
         public string ElementAt(int index)
         {
             SinglyLinkedListNode location = firstLocation;
-            if (location == null)
+            if (this.First() == null)
             {
                 throw new ArgumentOutOfRangeException("No nodes");
             }
-                else
+            for (int i=0; i< index; i++)
             {
-                location =
-
+                location = location.Next;
             }
 
-           // return ElementAt(0);
-           // throw new NotImplementedException();
+            return location.ToString();
+           //throw new NotImplementedException();
         }
 
         public string First()
