@@ -54,7 +54,7 @@ namespace SinglyLinkedLists
                     newnode = newnode.Next;
 
                 }
-                firstOne.Next = newnode;
+                    newnode.Next = firstOne;
             }
 
             //  throw new NotImplementedException();
@@ -104,7 +104,19 @@ namespace SinglyLinkedLists
         // HINT 3: If you highlight code and right click, you can use the refactor menu to extract a method for you...
         public string Last()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+
+            if (this.First() == null)
+            {
+                return null;
+            }
+            SinglyLinkedListNode lastNode = firstLocation;
+
+            while (!lastNode.IsLast())
+            {
+                lastNode = lastNode.Next;
+            }
+            return lastNode?.ToString();
         }
 
         public void Remove(string value)
@@ -120,6 +132,34 @@ namespace SinglyLinkedLists
         public string[] ToArray()
         {
             throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            SinglyLinkedListNode stringNode = firstLocation;
+            //string toString = " { ";
+
+            if (stringNode == null)
+            {
+                return "{ }";
+            }
+           else 
+            {
+                StringBuilder stringOfNodes = new StringBuilder();
+                stringOfNodes.Append("{ \"" + stringNode + "\"");
+               if (firstLocation == null)
+                {
+                    stringOfNodes.Append(" }");
+                    return stringOfNodes.ToString();
+                }
+                while (!stringNode.IsLast())
+                {
+                    stringNode = stringNode.Next;
+                    stringOfNodes.Append("\"" + stringNode.ToString() + "\"");
+                }
+                stringOfNodes.Append(" }");
+                return stringOfNodes.ToString();
+            }
         }
     }
 }
