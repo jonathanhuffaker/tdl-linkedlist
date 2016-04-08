@@ -155,7 +155,7 @@ namespace SinglyLinkedLists
                 while (!stringNode.IsLast())
                 {
                     stringNode = stringNode.Next;
-                    stringOfNodes.Append("\"" + stringNode.ToString() + "\"");
+                    stringOfNodes.Append(", \"" + stringNode.ToString() + "\"");
                 }
                 stringOfNodes.Append(" }");
                 return stringOfNodes.ToString();
