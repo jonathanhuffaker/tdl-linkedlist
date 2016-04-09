@@ -17,7 +17,11 @@ namespace SinglyLinkedLists
         // READ: http://msdn.microsoft.com/en-us/library/aa691335(v=vs.71).aspx
         public SinglyLinkedList(params object[] values)
         {
-            throw new NotImplementedException();
+            foreach(string value in values)
+            {
+                this.AddLast(value);
+            }
+            //throw new NotImplementedException();
         }
 
         // READ: http://msdn.microsoft.com/en-us/library/6x16t2tx.aspx
