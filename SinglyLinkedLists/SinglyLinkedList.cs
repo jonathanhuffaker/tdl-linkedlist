@@ -27,8 +27,32 @@ namespace SinglyLinkedLists
         // READ: http://msdn.microsoft.com/en-us/library/6x16t2tx.aspx
         public string this[int i]
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get
+            {
+                return this.ElementAt(i);
+                //throw new NotImplementedException();
+            }
+            set
+            {
+                SinglyLinkedListNode newNode = new SinglyLinkedListNode(value);
+                if(i == 0)
+                {
+                    newNode.Next = firstLocation.Next;
+                    firstLocation = newNode;
+                }
+                SinglyLinkedListNode thaNodeRightHere = firstLocation;
+                int index = 1;
+                while(index < 1)
+                {
+                    thaNodeRightHere = thaNodeRightHere.Next;
+                    index++;
+                }
+
+                newNode = thaNodeRightHere.Next;
+
+                //this.ElementAt(i) = value;
+                //throw new NotImplementedException(); 
+            }
         }
 
         public void AddAfter(string existingValue, string value)
