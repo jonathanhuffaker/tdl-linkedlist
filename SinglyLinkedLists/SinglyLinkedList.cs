@@ -63,7 +63,26 @@ namespace SinglyLinkedLists
         // NOTE: There is more than one way to accomplish this.  One is O(n).  The other is O(1).
         public int Count()
         {
-            throw new NotImplementedException();
+            int count = 0;
+            if(this.First() == null)
+            {
+                return count;
+
+            }
+            else
+            {
+                SinglyLinkedListNode countNode = firstLocation;
+                count++;
+                while (!countNode.IsLast())
+                {
+                    countNode = countNode.Next;
+                    count++;
+                }
+
+                return count;
+
+            }
+            // throw new NotImplementedException();
         }
 
         public string ElementAt(int index)
@@ -131,7 +150,27 @@ namespace SinglyLinkedLists
 
         public string[] ToArray()
         {
-            throw new NotImplementedException();
+            int count = this.Count();
+            string[] arrayNode = new string [count];
+
+            if(arrayNode == null)
+            {
+                return new string[] { };
+            }
+
+            else
+            {
+                for (int i=0; i<count; i++)
+                {
+                    arrayNode[i] = this.ElementAt(i);
+                }
+                return arrayNode;
+                
+            }
+            
+            
+            
+            //throw new NotImplementedException();
         }
 
         public override string ToString()
