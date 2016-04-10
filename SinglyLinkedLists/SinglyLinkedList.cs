@@ -162,6 +162,7 @@ namespace SinglyLinkedLists
                 location = location.Next;
             }
 
+
             return location.ToString();
            //throw new NotImplementedException();
         }
@@ -175,7 +176,20 @@ namespace SinglyLinkedLists
 
         public int IndexOf(string value)
         {
-            throw new NotImplementedException();
+            int index = 0;
+            SinglyLinkedListNode node = firstLocation;
+            while (true)
+            {
+                if (node.Value == value)
+                {
+                    break;
+                }
+                node = node.Next;
+                index++;
+            }
+            return index;
+
+            // throw new NotImplementedException();
         }
 
         public bool IsSorted()
