@@ -77,12 +77,8 @@ namespace SinglyLinkedLists
                 {
                     newNode.Next = newestOfNodes.Next;
                     newestOfNodes.Next = newNode;
-
-
                 }
-
             }
-          
             //throw new NotImplementedException();
         }
 
@@ -132,7 +128,6 @@ namespace SinglyLinkedLists
             if(this.First() == null)
             {
                 return count;
-
             }
             else
             {
@@ -143,9 +138,7 @@ namespace SinglyLinkedLists
                     countNode = countNode.Next;
                     count++;
                 }
-
                 return count;
-
             }
             // throw new NotImplementedException();
         }
@@ -161,7 +154,6 @@ namespace SinglyLinkedLists
             {
                 location = location.Next;
             }
-
 
             return location.ToString();
            //throw new NotImplementedException();
