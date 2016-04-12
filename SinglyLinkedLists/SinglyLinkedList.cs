@@ -35,22 +35,22 @@ namespace SinglyLinkedLists
             set
             {
                 SinglyLinkedListNode newNode = new SinglyLinkedListNode(value);
-                if(i == 0)
+                if (i == 0)
                 {
                     newNode.Next = firstLocation.Next;
                     firstLocation = newNode;
                 }
                 SinglyLinkedListNode thaNodeRightHere = firstLocation;
                 int index = 1;
-                while(index < 1)
+                while (index < 1)
                 {
                     thaNodeRightHere = thaNodeRightHere.Next;
                     index++;
                 }
 
-                newNode = thaNodeRightHere.Next;
+                thaNodeRightHere.Next = newNode;
 
-                //this.ElementAt(i) = value;
+
                 //throw new NotImplementedException(); 
             }
         }
@@ -159,12 +159,6 @@ namespace SinglyLinkedLists
            //throw new NotImplementedException();
         }
 
-        public string First()
-        {
-            return firstLocation?.ToString();
-            //SinglyLinkedListNode myFirstNode = new SinglyLinkedListNode(value);
-           // throw new NotImplementedException();
-        }
 
         public int IndexOf(string value)
         {
