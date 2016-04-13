@@ -168,29 +168,22 @@ namespace SinglyLinkedLists
 
         public int IndexOf(string value)
         {
-            if(firstLocation == null)
+
+            int index = 0;
+            var node = firstLocation;
+            if (firstLocation == null)
             {
                 return -1;
             }
-            int index = 0;
-            SinglyLinkedListNode node = firstLocation;
-            while (true)
+            while (!(node.Value == value))
+            //while (true)
             {
-                if (node.Value == value)
+                if (node.Next == null)
                 {
-                    break;
+                    return -1;
                 }
-                if(firstLocation == null)
-                {
-                    index = -1;
-
-                }
-                //else
-               // {
-                    node = node.Next;
-                    index++;
-                //}
-                
+                node = node.Next;
+                index++;
             }
             return index;
 
