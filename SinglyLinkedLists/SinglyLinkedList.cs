@@ -168,6 +168,10 @@ namespace SinglyLinkedLists
 
         public int IndexOf(string value)
         {
+            if(firstLocation == null)
+            {
+                return -1;
+            }
             int index = 0;
             SinglyLinkedListNode node = firstLocation;
             while (true)
@@ -176,8 +180,17 @@ namespace SinglyLinkedLists
                 {
                     break;
                 }
-                node = node.Next;
-                index++;
+                if(firstLocation == null)
+                {
+                    index = -1;
+
+                }
+                //else
+               // {
+                    node = node.Next;
+                    index++;
+                //}
+                
             }
             return index;
 
