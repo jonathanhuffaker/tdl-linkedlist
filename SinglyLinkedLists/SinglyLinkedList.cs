@@ -7,8 +7,8 @@ namespace SinglyLinkedLists
 {
     public class SinglyLinkedList
     {
-        SinglyLinkedListNode firstLocation { get; set;}
-        SinglyLinkedList list { get; set; }
+        public SinglyLinkedListNode firstLocation { get; set;}
+        public SinglyLinkedList list { get; set; }
         public SinglyLinkedList()
         {
             // NOTE: This constructor isn't necessary, once you've implemented the constructor below.
@@ -42,7 +42,7 @@ namespace SinglyLinkedLists
                 }
                 SinglyLinkedListNode thaNodeRightHere = firstLocation;
                 int index = 1;
-                while (index < 1)
+                while (index < i)
                 {
                     thaNodeRightHere = thaNodeRightHere.Next;
                     index++;
