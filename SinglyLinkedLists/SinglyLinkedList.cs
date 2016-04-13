@@ -159,6 +159,12 @@ namespace SinglyLinkedLists
            //throw new NotImplementedException();
         }
 
+        public string First()
+        {
+         return firstLocation?.ToString();
+        }
+
+
 
         public int IndexOf(string value)
         {
