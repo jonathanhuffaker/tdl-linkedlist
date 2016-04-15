@@ -255,7 +255,11 @@ namespace SinglyLinkedLists
 
         public void Sort()
         {
-            throw new NotImplementedException();
+            if(firstLocation == null)
+            {
+                return;
+            }
+            //throw new NotImplementedException();
         }
 
         public string[] ToArray()
