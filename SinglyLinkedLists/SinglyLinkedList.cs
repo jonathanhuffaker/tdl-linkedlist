@@ -192,14 +192,14 @@ namespace SinglyLinkedLists
 
         public bool IsSorted()
         {
-            if(firstLocation == null)
+            if (firstLocation == null)
             {
                 return true;
             }
             SinglyLinkedListNode sortNode = firstLocation;
-            while(sortNode.Next != null)
+            while (sortNode.Next != null)
             {
-                if(String.Compare(sortNode.Value, sortNode.Next.Value) > 0)
+                if (String.Compare(sortNode.Value, sortNode.Next.Value) > 0)
                 {
                     return false;
                 }
@@ -255,11 +255,64 @@ namespace SinglyLinkedLists
 
         public void Sort()
         {
-            if(firstLocation == null)
+
+            //if (IsSorted() == false)
+            //{
+            //    SinglyLinkedListNode sortNode = firstLocation;
+            //    for (int i = 0; i < Count() - 1; i++)
+            //    {
+            //        sortNode = firstLocation;
+            //        int counter = 0;
+
+            //        while (sortNode.IsLast() == false)
+            //        {
+            //            if (String.Compare(sortNode.Value, sortNode.Next.Value, false) == 1)
+            //            {
+            //                string storeValue = sortNode.Value;
+            //                this[counter] = sortNode.Next.Value;
+            //                this[counter + 1] = storeValue;
+            //            }
+            //            sortNode = sortNode.Next;
+            //            counter++;
+            //        }
+            //    }
+
+            //}
+
+            //============================
+            if (firstLocation == null)
             {
                 return;
             }
-            //throw new NotImplementedException();
+
+            SinglyLinkedListNode sortNode = firstLocation;
+            while (sortNode.Next != null)
+            {
+                int c = string.Compare(sortNode.Value, sortNode.Next.Value);
+
+                if(c == -1)
+                {
+                    return;
+                }
+                else
+                {
+                    if(c > 0)
+                    {
+                        
+
+                        //sortNode.Next = sortNode;
+                        SinglyLinkedListNode anotherNode = sortNode;
+                        anotherNode.Next = sortNode.Next.Next;
+                        sortNode = sortNode.Next;
+                        anotherNode = sortNode.Next;
+
+                    }
+                }
+
+
+                //throw new NotImplementedException();
+            }
+
         }
 
         public string[] ToArray()
