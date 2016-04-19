@@ -150,10 +150,22 @@ namespace SinglyLinkedLists
             {
                 throw new ArgumentOutOfRangeException("No nodes");
             }
+
+            //if(location.Next == null)
+            //{
+            //    throw new ArgumentOutOfRangeException();
+            //}
+
             for (int i=0; i< index; i++)
             {
                 location = location.Next;
+                if (location == null)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+               
             }
+           
 
             return location.ToString();
            //throw new NotImplementedException();
@@ -256,62 +268,73 @@ namespace SinglyLinkedLists
         public void Sort()
         {
 
-            //if (IsSorted() == false)
+            //leaving my first try implementation so I can walk through it, but refactored sort is passing
+            //if (firstLocation == null)
             //{
-            //    SinglyLinkedListNode sortNode = firstLocation;
-            //    for (int i = 0; i < Count() - 1; i++)
-            //    {
-            //        sortNode = firstLocation;
-            //        int counter = 0;
-
-            //        while (sortNode.IsLast() == false)
-            //        {
-            //            if (String.Compare(sortNode.Value, sortNode.Next.Value, false) == 1)
-            //            {
-            //                string storeValue = sortNode.Value;
-            //                this[counter] = sortNode.Next.Value;
-            //                this[counter + 1] = storeValue;
-            //            }
-            //            sortNode = sortNode.Next;
-            //            counter++;
-            //        }
-            //    }
-
+            //    return;
             //}
 
-            //============================
-            if (firstLocation == null)
-            {
-                return;
-            }
+            //SinglyLinkedListNode sortNode = firstLocation;
+            //while (sortNode.Next != null)
+            //{
+            //    int c = string.Compare(sortNode.Value, sortNode.Next.Value);
 
+            //    if (c == -1)
+            //    {
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        if (c == 1)
+            //        {
+
+            //            SinglyLinkedListNode anotherNode = sortNode;
+            //            var temp = sortNode.Next;
+            //            sortNode = temp;
+            //            anotherNode.Next = sortNode;
+            //            sortNode.Next = anotherNode.Next.Next;
+            //        }
+
+            //    }
+
+
+            //    sortNode = sortNode.Next;
+            //    throw new NotImplementedException();
+            //}
+
+
+
+            // =================================
             SinglyLinkedListNode sortNode = firstLocation;
-            while (sortNode.Next != null)
+            string[] list = this.ToArray();
+            if (!this.IsSorted())
             {
-                int c = string.Compare(sortNode.Value, sortNode.Next.Value);
-
-                if(c == -1)
+                while (sortNode != null)
                 {
-                    return;
-                }
-                else
-                {
-                    if(c > 0)
+                    if (sortNode.CompareTo(sortNode.Next) == 1)
                     {
-                        
+                        this.AddLast(sortNode.ToString());
 
-                        //sortNode.Next = sortNode;
-                        SinglyLinkedListNode anotherNode = sortNode;
-                        anotherNode.Next = sortNode.Next.Next;
+
+                        //this.AddAfter(node.Next.ToString(), node.ToString());
+
+
+                        this.Remove(sortNode.ToString());
+                        break;
+                    }
+                    else
+                    {
                         sortNode = sortNode.Next;
-                        anotherNode = sortNode.Next;
-
                     }
                 }
-
-
-                //throw new NotImplementedException();
             }
+
+            if (!this.IsSorted())
+            {
+                this.Sort();
+            }
+
+            // ====================================
 
         }
 
